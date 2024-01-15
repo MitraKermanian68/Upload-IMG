@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <div class="card">
+        <h1>Cute Girl</h1>
+        <p>@nuttygirl</p>
+        <img src="./profile.png" draggable="false" id="profilePic" />
+        <label for="inputFile">Update Image</label>
+        <input type="file" accept="Image/*" id="inputFile" hidden />
+      </div>
+    </div>
+
+    <script>
+      const inputFile = document.getElementById("inputFile");
+      const profilePic = document.getElementById("profilePic");
+
+      inputFile.onchange = function () {
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+      };
+      profilePic.onclick = function () {
+        inputFile.click();
+      };
+    </script>
+  </body>
+</html>
